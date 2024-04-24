@@ -1,0 +1,26 @@
+name: CI model to dockerhub
+
+on: 
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  build_docker_images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/Checkout@v2
+
+      - name: Login to dockerhub
+        uses: docker/login-action@v2
+        with: 
+          username: ${{ secrets.DOCKER_USERNAME_1 }}
+          password: ${{ secrets.DOCKER_PASSWORD_1 }}
+
+      - name: Build docker images
+        run: docker build -t julioorozco05/pokeapi-final-proyect:v1 .
+
+      - name: docker push to dockerhub
+        run: docker push julioorozco05/pokeapi-final-proyect:v1

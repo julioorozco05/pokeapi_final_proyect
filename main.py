@@ -5,7 +5,7 @@ import joblib
 
 app = FastAPI(
     title="Pokémon Type Prediction API",
-    version="0.0.1"
+    version="0.0.2"
 )
 
 # Cargar el modelo entrenado

@@ -46,4 +46,4 @@ jobs:
             fi
             
             docker pull ${{ secrets.DOCKER_USERNAME_1 }}/pokeapi-final-proyect:v1
-            docker run -d --name logistic_regression_api -p 8000:8000 ${{ secrets.DOCKER_USERNAME_1 }}/pokeapi-final-proyect:v1
+            docker run -d --name logistic-regression-api -p 8000:8000 ${{ secrets.DOCKER_USERNAME_1 }}/pokeapi-final-proyect:v1

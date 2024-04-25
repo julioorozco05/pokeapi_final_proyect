@@ -25,5 +25,25 @@ jobs:
       - name: Build docker images
         run: docker build -t julioorozco05/pokeapi-final-proyect:v1 .
 
+      # Nueva funcionalidad
       - name: docker push to dockerhub
         run: docker push julioorozco05/pokeapi-final-proyect:v1
+
+      - name: Login into server
+        run: echo '${{ secrets.DOCKER_PASSWORD_1 }}' | docker login -u '${{ secrets.DOCKER_PASSWORD_1 }}' --password-stdin
+
+      - name: Deploy to EC2 instance
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          script: |
+            docker login
+            if docker ps --all | grep logistic-regression-api; then
+              docker stop logistic-regression-api
+              docker rm logistic-regression-api
+            fi
+            
+            docker pull ${{ secrets.DOCKER_USERNAME_1 }}/pokeapi-final-proyect:v1
+            docker run -d --name logistic_regression_api -p 8000:8000 ${{ secrets.DOCKER_USERNAME_1 }}/pokeapi-final-proyect:v1

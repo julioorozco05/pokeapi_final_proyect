@@ -4,7 +4,7 @@ import pandas as pd
 import joblib
 
 app = FastAPI(
-    title="Pokémon Type Prediction",
+    title="Pokémon Type Prediction API",
     version="0.0.2"
 )
 

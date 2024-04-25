@@ -25,12 +25,12 @@ jobs:
       - name: Build docker images
         run: docker build -t julioorozco05/pokeapi-final-proyect:v1 .
 
-      # Nueva funcionalidad
       - name: docker push to dockerhub
         run: docker push julioorozco05/pokeapi-final-proyect:v1
 
+      # Nueva funcionalidad
       - name: Login into server
-        run: echo '${{ secrets.DOCKER_PASSWORD_1 }}' | docker login -u '${{ secrets.DOCKER_PASSWORD_1 }}' --password-stdin
+        run: echo '${{ secrets.DOCKER_PASSWORD_1 }}' | docker login -u '${{ secrets.DOCKER_USERNAME_1 }}' --password-stdin
 
       - name: Deploy to EC2 instance
         uses: appleboy/ssh-action@master

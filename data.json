@@ -1,0 +1,18 @@
+[
+  {
+    "predicted_type": "fire",
+    "pokemon_image_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
+  },
+  {
+    "predicted_type": "grass",
+    "pokemon_image_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png"
+  },
+  {
+    "predicted_type": "bug",
+    "pokemon_image_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png"
+  },
+  {
+    "predicted_type": "water",
+    "pokemon_image_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"
+  }
+]
